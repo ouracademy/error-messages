@@ -142,7 +142,7 @@ export class IndexComponent {
 ## Validators
 This is the list of the supported validations
 
-#### angular2 built-in validators
+#### angular built-in validators
 
 - required
 - minlength
