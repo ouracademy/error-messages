@@ -1,4 +1,18 @@
 <div class="all-page gray">
+    <mat-card>
+            <mat-card-title>
+                    Set language
+            </mat-card-title>
+        <button mat-raised-button color="accent" (click)="setLanguage('en')">
+            English
+        </button>
+        <button mat-raised-button color="accent" (click)="setLanguage('es')">
+            Spanish
+        </button>
+        <button mat-raised-button color="accent" (click)="setLanguage('ea')">
+                Language no support
+            </button>
+    </mat-card>
     <mat-card [formGroup]="form">
         <mat-card-title>
             Messager for errors
@@ -35,7 +49,7 @@
                 &lt;mat-form-field&gt;
                 &lt;textarea placeholder="Texto:" matInput formControlName="text"&gt;
                 &lt;/textarea&gt;
-                &lt;mat-error errorMessages="text"&gt;&lt;/mat-error&gt;
+                &lt;mat-error errorMessage="text" alias="Super Texto"&gt;&lt;/mat-error&gt;
                 &lt;/mat-form-field&gt;
         </pre>
 

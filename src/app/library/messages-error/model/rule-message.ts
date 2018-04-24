@@ -1,5 +1,9 @@
 import { ValidationRule, ValidationError } from './validation-rule'
 import { getLang, addLanguage } from '../lang/lang'
+import { of } from 'rxjs/observable/of'
+import "rxjs/add/observable/throw"
+import { Observable } from 'rxjs/Observable'
+
 
 export interface GetValidationMessage {
     (error: ValidationError, displayName: string): string;
@@ -18,12 +22,16 @@ export class ValidationRuleMessage {
 export class ValidationRuleMessages {
     private data
 
-    chooseLanguage(lang) {
-        this.buildMessage(getLang(lang))
+    chooseLanguage(lang): Observable<any> {
+        let langData = getLang(lang)
+        if (langData) { this.buildMessage(langData); return of(true); }
+        else {
+            return Observable.throw("Language not supported, add messages for this language")
+        }
     }
     addLanguage(lang, data) {
         if (getLang(lang)) {
-            new Error("Lan already exist")
+            new Error("Lang already exist")
         } else {
             addLanguage(lang, data)
         }

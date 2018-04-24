@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { validationRuleMessages } from '../model/rule-message'
 import { displayName } from '../model/display-name'
-
+import { Subject } from 'rxjs/Subject'
+import { tap } from 'rxjs/operators'
 
 
 @Injectable()
 export class DisplayErrorService {
     langDefault = "en"
+    onChangeLang = new Subject()
     constructor() {
         validationRuleMessages.chooseLanguage(this.langDefault)
     }
@@ -18,16 +20,18 @@ export class DisplayErrorService {
     }
 
     setLanguage(lang) {
-        validationRuleMessages.chooseLanguage(lang)
+        return validationRuleMessages
+            .chooseLanguage(lang).pipe(tap(res => {  console.log("hhjk"); this.onChangeLang.next() } ))
+
     }
-    addLanguage(lang,data) {
-        validationRuleMessages.addLanguage(lang,data)
+    addLanguage(lang, data) {
+        validationRuleMessages.addLanguage(lang, data)
     }
-    addErrorMessage(){
+    addErrorMessage() {
 
     }
     private displayName(propertyName, alias) {
-        if(alias) displayName.for(propertyName,alias)
+        if (alias) displayName.for(propertyName, alias)
         return displayName.of(propertyName)
     }
 

@@ -29,6 +29,11 @@ export class NgxErrorsDirective implements OnChanges, OnDestroy, OnInit {
     this.setControl()
   }
   ngOnInit() {
+
+    this.displayErrorService.onChangeLang.subscribe(r => {
+      console.log("change lang")
+      this.checkStatus()
+    })
     this._control.statusChanges
       .pipe(startWith({}))
       .subscribe(() => this.checkStatus());
@@ -38,9 +43,9 @@ export class NgxErrorsDirective implements OnChanges, OnDestroy, OnInit {
     if (this._control.invalid) {
       const errors = Object
         .keys(this._control.errors)
-        .map(key => { return Object.assign({}, { key: key }, this._control.getError(key))})
-      
-      this.showError(this.displayErrorService.for(this.controlName, errors[0],this.alias))
+        .map(key => { return Object.assign({}, { key: key }, this._control.getError(key)) })
+
+      this.showError(this.displayErrorService.for(this.controlName, errors[0], this.alias))
 
     } else {
       this.hideError()
