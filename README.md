@@ -79,7 +79,7 @@ export class AppModule { }
 
 
 
-#### 2. Init the ValidationMessagesService for your application:
+#### 2. Init the DisplayErrorService for your application:
 ```ts
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
