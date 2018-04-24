@@ -1,0 +1,43 @@
+<div class="all-page gray">
+    <mat-card [formGroup]="form">
+        <mat-card-title>
+            Messager for errors
+        </mat-card-title>
+        <div>
+            <mat-form-field>
+                <textarea placeholder="Texto:" matInput formControlName="text">
+                </textarea>
+                <mat-error errorMessages="text" alias="Super texto"></mat-error>
+            </mat-form-field>
+        </div>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Form structure:</mat-card-title>
+        <p>Is valid : {{ form.valid }}</p>
+        <p>Form validation:</p>
+        <pre>
+            
+                     'text': ['', [
+                       Validators.required,
+                       Validators.minLength(5),
+                       Validators.maxLength(10)
+                     ]]
+                   
+           </pre>
+        <p>Form value:</p>
+        <pre>
+               {{ form.value | json }}
+        </pre>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Using:</mat-card-title>
+        <pre>
+                &lt;mat-form-field&gt;
+                &lt;textarea placeholder="Texto:" matInput formControlName="text"&gt;
+                &lt;/textarea&gt;
+                &lt;mat-error errorMessages="text"&gt;&lt;/mat-error&gt;
+                &lt;/mat-form-field&gt;
+        </pre>
+
+    </mat-card>
+</div>
