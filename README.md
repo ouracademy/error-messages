@@ -5,6 +5,7 @@
 [npm-url]: https://www.npmjs.com/package/ng-error-messages
 
 A collection of classes to help handling display error messages on your form.
+Based in [repository of my dear friend Arthur] (https://github.com/artmadeit/ngx-demo)
 
 
 * [Demo](#demo)
