@@ -4,12 +4,12 @@ import { DisplayErrorService } from './services/display-error.service'
 import { startWith } from 'rxjs/operators';
 
 @Directive({
-  selector: '[errorMessages]',
-  exportAs: 'errorMessages'
+  selector: '[errorMessage]',
+  exportAs: 'errorMessage'
 })
 export class NgxErrorsDirective implements OnChanges, OnDestroy, OnInit {
 
-  @Input('errorMessages') controlName: string;
+  @Input('errorMessage') controlName: string;
   @Input('alias') alias: string = "";
   private _control: AbstractControl
   private _nodeMessage = null

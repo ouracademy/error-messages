@@ -1,7 +1,7 @@
 import { ValidationRule, ValidationError } from './validation-rule'
 import { getLang, addLanguage } from '../lang/lang'
 
-interface GetValidationMessage {
+export interface GetValidationMessage {
     (error: ValidationError, displayName: string): string;
 }
 
@@ -15,7 +15,7 @@ export class ValidationRuleMessage {
     }
 }
 
-class ValidationRuleMessages {
+export class ValidationRuleMessages {
     private data
 
     chooseLanguage(lang) {
