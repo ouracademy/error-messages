@@ -41,7 +41,7 @@ So you can instead do this:
                 <div errorMessage="text" alias="Super Texto" ></div>
 ```
 
-And it will do the same in very uniform way in all your fields in every forms in all your views. This package will create validation messages for you. It contains predefined validation messages, but you can customize it (see [customizing](#customizing)).
+And it will do the same in very uniform way in all your fields in every forms in all your views. This package will create validation messages for you. It contains predefined validation messages.
 
 ## Installation
 Install the npm module by running:
@@ -56,9 +56,6 @@ You can see the [demo app](https://github.com/ouracademy/error-messages/tree/mas
 
 #### 1. Import the `ErrorMessageModule`:
 
-The [`forRoot`](https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root) static method is a convention that provides and configures services at the same time.
-Make sure you only call this method in the root module of your application, most of the time called `AppModule`.
-This method allows you to configure the `ValidationMessagesModule` by specifying a loader, a parser and/or a missing validation messages handler, as it's described in [customizing](#customizing).
 
 ```ts
 import { NgModule }      from '@angular/core';
@@ -85,7 +82,7 @@ export class AppModule { }
 ```ts
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DisplayErrorService } from '../../library/messages-error'
+import { DisplayErrorService } from 'ng-error-messages'
 
 @Component({
   selector: 'demo-app',
