@@ -4,6 +4,7 @@ import { validationRuleMessages } from '../model/rule-message'
 import { displayName } from '../model/display-name'
 import { Subject } from 'rxjs/Subject'
 import { tap } from 'rxjs/operators'
+import { Observable } from 'rxjs/Observable'
 
 
 @Injectable()
@@ -18,11 +19,9 @@ export class DisplayErrorService {
             .get(error)
             .message(error, this.displayName(propertyName, alias))
     }
-
-    setLanguage(lang) {
+    setLanguage(lang):Observable<any> {
         return validationRuleMessages
             .chooseLanguage(lang).pipe(tap(res => {  console.log("hhjk"); this.onChangeLang.next() } ))
-
     }
     addLanguage(lang, data) {
         validationRuleMessages.addLanguage(lang, data)
@@ -34,7 +33,6 @@ export class DisplayErrorService {
         if (alias) displayName.for(propertyName, alias)
         return displayName.of(propertyName)
     }
-
 
 }
 
