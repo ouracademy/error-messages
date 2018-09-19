@@ -11,7 +11,7 @@ import { FormGroupDirective, ControlContainer } from '@angular/forms';
 var languages = {};
 languages["es"] = {};
 languages["es"]["required"] = function (error, displayName) { return "El campo " + displayName + " es requerido."; };
-languages["es"]["minlength"] = function (error, displayName) { return "El campo " + displayName + " debe tener m\u00E1s de  " + error.requiredLength + " caracteres, pero tiene " + error.actualLength + "."; };
+languages["es"]["minlength"] = function (error, displayName) { return "El campo " + displayName + " debe tener m\u00E1s de  " + (error.requiredLength-1) + " caracteres, pero tiene " + error.actualLength + "."; };
 languages["es"]["maxlength"] = function (error, displayName) { return "El campo  " + displayName + " debe tener menos de  " + error.requiredLength + " caracteres, pero tiene " + error.actualLength + "."; };
 languages["es"]["pattern"] = function (error, displayName) { return "El formato del campo  " + displayName + " es inv\u00E1lido ."; };
 languages["es"]["min"] = function (error, displayName) { return "El campo  " + displayName + " debe ser mayor a " + error.min + ", pero es " + error.actual + "."; };

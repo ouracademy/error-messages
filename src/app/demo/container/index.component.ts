@@ -22,8 +22,7 @@ export class IndexComponent {
     this.form = this.fb.group({
       'text': ['', [
         Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(10)
+        Validators.min(18)
       ]]
     });
   }
