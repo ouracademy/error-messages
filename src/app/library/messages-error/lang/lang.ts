@@ -1,8 +1,8 @@
 const languages = {}
 languages["es"] = {}
 languages["es"]["required"] = (error, displayName) => `El campo ${displayName} es requerido.`
-languages["es"]["minlength"] = (error, displayName) => `El campo ${displayName} debe tener más de  ${error.requiredLength} caracteres, pero tiene ${error.actualLength}.`
-languages["es"]["maxlength"] = (error, displayName) => `El campo  ${displayName} debe tener menos de  ${error.requiredLength} caracteres, pero tiene ${error.actualLength}.`
+languages["es"]["minlength"] = (error, displayName) => `El campo ${displayName} debe tener más de  ${error.requiredLength + 1} caracteres, pero tiene ${error.actualLength}.`
+languages["es"]["maxlength"] = (error, displayName) => `El campo  ${displayName} debe tener menos de  ${error.requiredLength - 1} caracteres, pero tiene ${error.actualLength}.`
 languages["es"]["pattern"] = (error, displayName) => `El formato del campo  ${displayName} es inválido .`
 languages["es"]["min"] = (error, displayName) => `El campo  ${displayName} debe ser mayor a ${error.min}, pero es ${error.actual}.`
 languages["es"]["max"] = (error, displayName) => `El campo  ${displayName} debe ser menor a ${error.max}, pero es ${error.actual}.`

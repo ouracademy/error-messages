@@ -11,7 +11,8 @@
     "e2e": "ng e2e",
     "packagr": "ng-packagr -p ng-package.json"
   },
-  "dependencies":{
+  "dependencies": {
+    "@schematics/angular": "^0.8.3",
     "underscore.string": "^3.3.4"
   },
   "peerDependencies": {
